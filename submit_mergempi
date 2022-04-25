@@ -1,0 +1,13 @@
+
+#SBATCH -A hpc2n2022-002
+#SBATCH -N 5
+#SBARCH --ntask-per-node=1
+#SBATCH -c 128
+#SBATCH -J MergeSort
+#SBATCH --time=01:00:00
+#SBATCH --error=job.merge.err
+#SBATCH --output=job.merge.out
+
+module add foss/2019b
+
+./run.sh
