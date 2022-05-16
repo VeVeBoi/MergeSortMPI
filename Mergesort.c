@@ -47,11 +47,7 @@ void serial(int argc, char** argv){
     free(original_array);
 
     printf("%d | %d | %lf |\n", 1, atoi(argv[1]), endTime-startTime);
-    // printf("\n============================================\n");
-    // printf("Serial: \nAmount of %d elements\nTotal time %f seconds\n", atoi(argv[1]), endTime-startTime);
-    // printf("============================================\n\n");
     
-
 }
 
 void parallel(int argc, char** argv, int comm_sz, int rank, MPI_Comm comm){
@@ -126,16 +122,8 @@ void parallel(int argc, char** argv, int comm_sz, int rank, MPI_Comm comm){
     
     double Serial_End_Time = MPI_Wtime();
     if(rank == 0){
-        // for(int i = 0; i < n; i++){
-        //     printf("%d : %lf\n", i, recBuffer[i]);
-        // }
 
         printf("%d | %d | %lf |\n", comm_sz, atoi(argv[1]), Serial_End_Time-startTime); 
-        //printf("\n============================================\n");
-        //printf("Amount of elements %d\nNumber of processors: %d\nTotal TIme: %lf\n", atoi(argv[1]), comm_sz, Serial_End_Time-startTime); 
-        //printf("Amount of elements %d\nNumber of processors: %d\nTotal TIme: %lf\nParallel Time: %lf\nSerial Time on last merge call: %lf\n", atoi(argv[1]), comm_sz, Serial_End_Time-startTime, parallel_end_time - parallel_start_time, Serial_End_Time - Serial_Start_Time); 
-        //printf("============================================\n\n");
-        //printf("Parallel: For %d elements on %d cores: it took %f seconds\n", atoi(argv[1]), comm_sz, endTime-startTime, parallel_end_time - parallel_start_time, Serial_End_Time - Serial_Start_Time);
     }
 
     free(sorted);
